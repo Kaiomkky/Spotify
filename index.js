@@ -1,7 +1,10 @@
-const express = require('express');
-const app = express();
-const PORT = process.env.PORT || 3000;
+const http = require('http');
 
-app.get('/', (req, res) => res.send('Bot rodando!'));
+const server = http.createServer((req, res) => {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Rodando!\n');
+});
 
-app.listen(PORT, () => console.log(`Servidor ativo na porta ${PORT}`));
+server.listen(3000, () => {
+  console.log('Servidor rodando na porta 3000');
+});
